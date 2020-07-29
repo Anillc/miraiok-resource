@@ -3,7 +3,8 @@ name: download
 on:
   schedule:
     - cron: '0 */5 * * *'
-  repository_dispatch
+  repository_dispatch:
+    types: [opened, deleted]
 
 jobs:
   XD:
