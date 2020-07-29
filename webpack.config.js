@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   target: 'node',
   entry: './src/index.coffee',
   module: {
