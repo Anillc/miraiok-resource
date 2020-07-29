@@ -28,7 +28,6 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@actions/core": "^1.2.4",
     "jszip": "^3.5.0",
     "node-fetch": "^2.6.0"
   }
