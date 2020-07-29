@@ -1,4 +1,5 @@
 fetch = require 'node-fetch'
+  .default
 jszip = require 'jszip'
 fs = require 'fs'
 
