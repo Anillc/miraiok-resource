@@ -3,8 +3,6 @@ name: download
 on:
   schedule:
     - cron: '0 */5 * * *'
-  watch:
-    types: started
 
 jobs:
   XD:
