@@ -1,0 +1,30 @@
+name: download
+
+on:
+  schedule:
+    - cron: '0 */5 * * *'
+  push:
+    branches:
+      - master
+
+jobs:
+  XD:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: init
+        run: |
+          rm -rf miraiok
+          mkdir miraiok
+      - name: setup node
+        use: actions/setup-node@v1
+        with:
+          node-version: 12
+        run: npm ci
+      - name: download
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          run: npm start
+      - name: ls
+        run: ls miraiok
