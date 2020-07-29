@@ -3,9 +3,6 @@ name: download
 on:
   schedule:
     - cron: '0 */5 * * *'
-  push:
-    branches:
-      - master
 
 jobs:
   XD:
@@ -27,3 +24,13 @@ jobs:
         run: node dist/main.js ${{ secrets.GITHUB_TOKEN }}
       - name: ls
         run: ls miraiok
+      - name: commit miraiok
+        run: |
+          git config --local user.email "an@kano.cat"
+          git config --local user.name "Anillc"
+          git add -A
+          git commit -m "update miraiok" -a
+      - name: push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PUSH_TOKEN }}
