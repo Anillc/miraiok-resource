@@ -24,8 +24,6 @@ jobs:
       - name: npm ci
         run: npm ci
       - name: download
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-        run: npm start
+        run: node dist/main.js ${{ secrets.GITHUB_TOKEN }}
       - name: ls
         run: ls miraiok

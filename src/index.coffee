@@ -1,10 +1,8 @@
 fetch = require 'node-fetch'
 jszip = require 'jszip'
 fs = require 'fs'
-core = require '@actions/core'
 
-token = core.getInput 'token',
-  required: true
+token = process.argv[2]
 artsUrl = 'https://api.github.com/repos/LXY1226/MiraiOK/actions/artifacts'
 
 ghApi = (url) -> await (await fetch url,
