@@ -13,7 +13,9 @@ jobs:
       - name: init
         run: |
           rm -rf miraiok
+          rm -rf mirai-api-http
           mkdir miraiok
+          mkdir mirai-api-http
       - name: setup node
         uses: actions/setup-node@v1
         with:
@@ -22,8 +24,8 @@ jobs:
         run: npm install
       - name: download
         run: node dist/main.js ${{ secrets.GITHUB_TOKEN }}
-      - name: ls
-        run: ls miraiok
+      - name: mv
+        run: mv mirai-api-http/*.jar mirai-api-http/mirai-api-http.jar
       - name: commit miraiok
         run: |
           git config --local user.email "an@kano.cat"
